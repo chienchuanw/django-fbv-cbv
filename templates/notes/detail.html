@@ -1,0 +1,20 @@
+{% extends "shared/base.html" %}
+
+{% block title %}筆記細節{% endblock title %}
+
+
+{% block content %}
+<a href="{% url "notes:index" %}">回到筆記列表</a>
+<h1>筆記細節</h1>
+
+<h2>筆記標題</h2>
+<div>{{ note.title }}</div>
+
+<h2>內容</h2>
+{% if note.description %}
+<div>{{ note.description }}</div>
+{% endif %}
+
+<a href="{% url "notes:edit" note.id %}">修改筆記事項</a>
+
+{% endblock content %}

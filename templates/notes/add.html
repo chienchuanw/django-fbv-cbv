@@ -1,0 +1,21 @@
+{% extends "shared/base.html" %}
+
+{% block content %}
+<a href="{% url "notes:index" %}">回到筆記列表</a>
+<h1>新增筆記</h1>
+<form method="POST">
+	{% csrf_token %}
+
+	<div>
+		<label for="title">筆記標題</label>
+		<input name="title" type="text" id="title">
+	</div>
+
+	<div>
+		<label for="description">筆記內容</label>
+		<textarea name="description" id="description"></textarea>
+	</div>
+
+	<button>創建</button>
+</form>
+{% endblock content %}
