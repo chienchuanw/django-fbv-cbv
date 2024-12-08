@@ -1,0 +1,19 @@
+{% extends "shared/base.html" %}
+
+{% block title %}任務細節{% endblock title %}
+
+
+{% block content %}
+<a href="{% url "tasks:index" %}">回到任務列表</a>
+<h1>任務細節</h1>
+
+<h2>待辦事項</h2>
+<div>{{ task.title }}</div>
+
+<h2>內容</h2>
+{% if task.description %}
+<div>{{ task.description }}</div>
+{% endif %}
+<a href="{% url "tasks:edit" task.id %}">修改待辦事項</a>
+
+{% endblock content %}

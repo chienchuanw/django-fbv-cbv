@@ -1,0 +1,24 @@
+{% extends "shared/base.html" %}
+
+{% block title %}任務列表{% endblock title %}
+
+
+{% block content %}
+
+<a href="{% url "pages:home" %}">回首頁</a>
+<h1>任務列表</h1>
+<a href="{% url 'tasks:add' %}">新增任務</a>
+
+<ul>
+	{% for task in tasks %}
+	<li>
+		<a href="{% url "tasks:detail" task.id %}">{{ task }}</a>
+		<form action="{% url "tasks:delete" task.id %}" method="post">
+			{% csrf_token %}
+			<button>刪除</button>
+		</form>
+	</li>
+	{% endfor %}
+</ul>
+
+{% endblock content %}
